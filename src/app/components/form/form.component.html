@@ -1,0 +1,22 @@
+<div class="example-container">
+    <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your firstName</mat-label>
+            <input matInput placeholder="firstName" formControlName="firstName" required>
+            <mat-error *ngIf="f.firstName.errors && f.firstName.errors.required">FirstName is required!</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your lastName</mat-label>
+            <input matInput placeholder="lastName" formControlName="lastName" required>
+            <mat-error *ngIf="f.lastName.errors && f.lastName.errors.required">LastName is required!</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="correo@dominio.com" formControlName="email" required>
+            <mat-error *ngIf="f.email.errors && f.email.errors.required">Email is required!</mat-error>
+            <mat-error *ngIf="f.email.errors && f.email.errors.email">Email is wrong!</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="!testForm.valid">Send</button>
+        <button mat-raised-button color="primary" (click)="onReset()">Cancel</button>
+    </form>
+</div>
