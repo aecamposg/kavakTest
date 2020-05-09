@@ -1,22 +1,65 @@
-<div class="example-container">
+<div class="container">
     <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your firstName</mat-label>
-            <input matInput placeholder="firstName" formControlName="firstName" required>
-            <mat-error *ngIf="f.firstName.errors && f.firstName.errors.required">FirstName is required!</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your lastName</mat-label>
-            <input matInput placeholder="lastName" formControlName="lastName" required>
-            <mat-error *ngIf="f.lastName.errors && f.lastName.errors.required">LastName is required!</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="correo@dominio.com" formControlName="email" required>
-            <mat-error *ngIf="f.email.errors && f.email.errors.required">Email is required!</mat-error>
-            <mat-error *ngIf="f.email.errors && f.email.errors.email">Email is wrong!</mat-error>
-        </mat-form-field>
-        <button mat-raised-button color="primary" [disabled]="!testForm.valid">Send</button>
-        <button mat-raised-button color="primary" (click)="onReset()">Cancel</button>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your First Name</mat-label>
+                    <input matInput placeholder="firstName" formControlName="firstName" ng-pattern="/[a-zA-Z0-9^ ]/" required>
+                    <mat-error *ngIf="f.firstName.errors && f.firstName.errors.required">First Name is required!</mat-error>
+                    <mat-error *ngIf="f.firstName.errors && f.firstName.errors.pattern">Just letters without space!</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your Last Name</mat-label>
+                    <input matInput placeholder="lastName" formControlName="lastName" required>
+                    <mat-error *ngIf="f.lastName.errors && f.lastName.errors.required">Last Name is required!</mat-error>
+                    <mat-error *ngIf="f.lastName.errors && f.lastName.errors.pattern">Just letters without space!</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your Email</mat-label>
+                    <input matInput placeholder="correo@dominio.com" formControlName="email" required>
+                    <mat-error *ngIf="f.email.errors && f.email.errors.required">Email is required!</mat-error>
+                    <mat-error *ngIf="f.email.errors && f.email.errors.email">Email is wrong!</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <mat-select formControlName="countries" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let country of countries" [value]="country">
+                            {{country.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="f.countries.errors && f.countries.errors.required">Please choose a country</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <mat-label>Select a Gener</mat-label>
+                <mat-radio-group style="display: flow-root !important;" formControlName="gener" aria-labelledby="example-radio-group-label" class="example-radio-group" required>
+                    <mat-radio-button class="example-radio-button" *ngFor="let gener of geners" [value]="gener">
+                        {{gener}}
+                    </mat-radio-button>
+                </mat-radio-group>
+                <mat-error *ngIf="f.gener.errors && f.gener.errors.required">Please choose one</mat-error>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your Phone Number</mat-label>
+                    <input matInput placeholder="Phone Number" formControlName="phone" required>
+                    <mat-error *ngIf="f.phone.errors && f.phone.errors.required">Phone Number is required!</mat-error>
+                    <mat-error *ngIf="f.phone.errors && f.phone.errors.pattern">Just numbers!</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mx-auto justify-content-center align-items-center m-5">
+            <button mat-raised-button color="primary" style="margin-right: 10px;" [disabled]="!testForm.valid">Send</button>
+            <button mat-raised-button color="primary" (click)="onReset()">Cancel</button>
+        </div>
     </form>
 </div>
