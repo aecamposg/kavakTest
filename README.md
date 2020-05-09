@@ -1,27 +1,11 @@
-# Kavak
+# KavakTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
+Este proyecto fué generado con la finalidad de realizar una Prueba Técnica para la empresa Kavak.com, en donde ha sido entregado dos archivos con los requerimientos y se han incluído aquí utilizando Angular 9 y Javascript.
 
-## Development server
+# TODO
+ - Mejorar la expresión regular en el formulario de ejemplo para los teléfonos, ya que no cumple con lo requerido en la prueba: 
+ (55)123-123-12, de momento por apuro en terminar a tiempo se agregó la validación para que fuesen números únicamente.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ # Despliegue
+ - npm install
+ - ng serve -o
